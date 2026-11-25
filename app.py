@@ -1,4 +1,5 @@
 import os
+
 import re
 import sqlite3
 import logging
@@ -78,6 +79,8 @@ def initialize_database():
         """)
         db.commit()
 
+
+initialize_database()
 
 # ---------------- FORMS ----------------
 
