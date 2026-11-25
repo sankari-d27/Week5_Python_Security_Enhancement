@@ -1,0 +1,67 @@
+
+{% extends "base.html" %}
+
+{% block title %}Home | SecureShield{% endblock %}
+
+{% block content %}
+
+<section class="hero container">
+
+    <div class="shield">🛡️</div>
+
+    <h1>
+        Your Security.<br>
+        <span class="gradient-text">Our Priority.</span>
+    </h1>
+
+    <p>
+        Welcome to SecureShield, a secure Python user
+        management application demonstrating modern
+        authentication, password protection, input
+        validation and web security practices.
+    </p>
+
+    <div class="hero-actions">
+        <a href="{{ url_for('register') }}" class="btn">
+            Create Account →
+        </a>
+
+        <a href="{{ url_for('login') }}" class="btn btn-outline">
+            Sign In
+        </a>
+    </div>
+
+</section>
+
+<section class="features container">
+
+    <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h3>Secure Authentication</h3>
+        <p>
+            Password hashing and protected user login
+            functionality.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>Database Protection</h3>
+        <p>
+            Parameterized SQL queries help protect
+            against SQL injection.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Input Validation</h3>
+        <p>
+            Server-side validation and CSRF protection
+            improve application security.
+        </p>
+    </div>
+
+</section>
+
+{% endblock %}

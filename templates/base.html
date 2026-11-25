@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080f1e">
+    <title>{% block title %}SecureShield{% endblock %}</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="{{ url_for('index') }}" class="brand">
+        🛡 Secure<span>Shield</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="{{ url_for('index') }}">Home</a>
+
+        {% if session.get('user_id') %}
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <form method="POST"
+                  action="{{ url_for('logout') }}"
+                  style="display:inline">
+                <input type="hidden" name="csrf_token"
+                       value="{{ csrf_token() }}">
+                <button type="submit" class="btn btn-outline">
+                    Logout
+                </button>
+            </form>
+        {% else %}
+          <a href="{{ url_for('login') }}">Login</a>
+          <a href="{{ url_for('register') }}">Register</a>
+          <a href="{{ url_for('register') }}" class="btn">
+              Get Started
+          </a>
+
+        {% endif %}
+    </div>
+</nav>
+
+{% with messages = get_flashed_messages() %}
+    {% for message in messages %}
+        <div class="flash" role="status">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endwith %}
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+    © 2026 SecureShield | Python Security Enhancement Project
+    <br>
+    Built with Flask and SQLite
+</footer>
+
+</body>
+</html>

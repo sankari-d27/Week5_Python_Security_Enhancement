@@ -1,0 +1,89 @@
+
+{% extends "base.html" %}
+
+{% block title %}Dashboard | SecureShield{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <section class="dashboard-header">
+        <h1>
+            Welcome back,
+            <span class="gradient-text">{{ username }}</span> 👋
+        </h1>
+        <p>
+            Here's an overview of your secure user account.
+        </p>
+    </section>
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <small>ACCOUNT STATUS</small>
+            <h3>
+                <span class="status-dot"></span>
+                Active
+            </h3>
+        </div>
+
+        <div class="stat-card">
+            <small>AUTHENTICATION</small>
+            <h3>🔐 Protected</h3>
+        </div>
+
+        <div class="stat-card">
+            <small>APPLICATION</small>
+            <h3>🛡️ SecureShield</h3>
+        </div>
+
+    </section>
+
+    <section class="card dashboard-panel">
+
+        <h2>Security Features</h2>
+
+        <div class="status-row">
+            <span class="status-label">Password Protection</span>
+            <span class="badge">Implemented</span>
+        </div>
+
+        <div class="status-row">
+            <span class="status-label">SQL Injection Protection</span>
+            <span class="badge">Implemented</span>
+        </div>
+
+        <div class="status-row">
+            <span class="status-label">CSRF Protection</span>
+            <span class="badge">Implemented</span>
+        </div>
+
+        <div class="status-row">
+            <span class="status-label">Input Validation</span>
+            <span class="badge">Implemented</span>
+        </div>
+
+        <div class="status-row">
+            <span class="status-label">Secure Session Settings</span>
+            <span class="badge">Configured</span>
+        </div>
+
+    </section>
+
+    <section class="card dashboard-panel">
+        <h2>Account Information</h2>
+
+        <div class="status-row">
+            <span class="status-label">Username</span>
+            <strong>{{ username }}</strong>
+        </div>
+
+        <div class="status-row">
+            <span class="status-label">Login Status</span>
+            <span class="badge">Authenticated</span>
+        </div>
+    </section>
+
+</div>
+
+{% endblock %}

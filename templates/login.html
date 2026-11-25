@@ -1,0 +1,57 @@
+
+{% extends "base.html" %}
+
+{% block title %}Login | SecureShield{% endblock %}
+
+{% block content %}
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+
+        <div class="auth-icon">🔐</div>
+
+        <h2>Welcome Back!</h2>
+
+        <p class="subtitle">
+            Sign in to access your secure dashboard.
+        </p>
+
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.username.label }}
+                {{ form.username(
+                    placeholder="Enter your username",
+                    autocomplete="username"
+                ) }}
+
+                {% for error in form.username.errors %}
+                    <span class="form-error">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.password.label }}
+                {{ form.password(
+                    placeholder="Enter your password",
+                    autocomplete="current-password"
+                ) }}
+
+                {% for error in form.password.errors %}
+                    <span class="form-error">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            {{ form.submit(class="btn full-width") }}
+        </form>
+
+        <div class="auth-footer">
+            Don't have an account?
+            <a href="{{ url_for('register') }}">Create Account</a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
